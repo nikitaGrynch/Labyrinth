@@ -11,6 +11,7 @@ namespace Maze
             InitializeComponent();
             Options();
             StartGame();
+            ShowStatusStrip();
         }
 
         public void Options()
@@ -49,6 +50,21 @@ namespace Maze
             else if (e.KeyCode == Keys.Down)
             {
                 l.CharMove(0, 1);
+            }
+        }
+
+        public void ShowStatusStrip()
+        {
+            if(l == null)
+            {
+                return;
+            }
+            foreach (var item in statusStrip1.Items)
+            {
+                if ((item as ToolStripStatusLabel).Name == "label")
+                {
+                    (item as ToolStripStatusLabel).Text = $"Health: {l.health}% | Medals left: {l.countOfMedals}";
+                }
             }
         }
     }

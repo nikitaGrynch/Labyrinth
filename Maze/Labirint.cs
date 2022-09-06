@@ -18,9 +18,9 @@ namespace Maze
         private int prevCharPosX;
         private int prevCharPosY;
 
-        private int countOfMedals;
+        public int countOfMedals;
 
-        private int health;
+        public int health;
 
         private Point finish;
 
@@ -36,7 +36,8 @@ namespace Maze
             images = new PictureBox[height, width];
 
             Generate();
-            ShowHeader();
+            //ShowHeader();
+            (this.parent as Form1).ShowStatusStrip();
         }
 
         private void Generate()
@@ -135,19 +136,22 @@ namespace Maze
             else if (maze[prevCharPosY + y, prevCharPosX + x].type == MazeObject.MazeObjectType.ENEMY)
             {
                 this.health -= 25;
-                ShowHeader();
+                //ShowHeader();
+                (this.parent as Form1).ShowStatusStrip();
             }
             // Medal
             else if (maze[prevCharPosY + y, prevCharPosX + x].type == MazeObject.MazeObjectType.MEDAL)
             {
                 this.countOfMedals--;
-                ShowHeader();
+                //ShowHeader();
+                (this.parent as Form1).ShowStatusStrip();
             }
             // Pill
             else if (maze[prevCharPosY + y, prevCharPosX + x].type == MazeObject.MazeObjectType.PILL)
             {
                 this.health += this.health == 100? 0 : 5;
-                ShowHeader();
+                //ShowHeader();
+                (this.parent as Form1).ShowStatusStrip();
             }
             maze[prevCharPosY, prevCharPosX] = new MazeObject(MazeObject.MazeObjectType.HALL);
             images[prevCharPosY, prevCharPosX].Location = new Point(prevCharPosX * maze[prevCharPosY, prevCharPosX].width, prevCharPosY * maze[prevCharPosY, prevCharPosX].height);

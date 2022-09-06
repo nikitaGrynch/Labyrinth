@@ -7,12 +7,14 @@ namespace Maze
     {
         public enum MazeObjectType { HALL, WALL, MEDAL, ENEMY, CHAR, PILL };
 
-        public Bitmap[] images = {new Bitmap(@"C:\1\hall.png"),
-            new Bitmap(@"C:\1\wall.png"),
-            new Bitmap(@"C:\1\medal.png"),
-            new Bitmap(@"C:\1\enemy.png"),
-            new Bitmap(@"C:\1\player.png"),
-            new Bitmap(@"C:\1\pill.png") };
+        public Bitmap[] images = {
+            Properties.Resources.hall,
+            Properties.Resources.wall,
+            Properties.Resources.medal,
+            Properties.Resources.enemy,
+            Properties.Resources.player,
+            Properties.Resources.pill
+        };
 
         public MazeObjectType type;
         public int width;
